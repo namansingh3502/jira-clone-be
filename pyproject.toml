@@ -1,13 +1,18 @@
 [tool.poetry]
-name = "be"
+name = "jira-clone-be"
 version = "0.1.0"
-description = ""
+description = "JIRA clone for leaning purpose"
 authors = ["Naman Singh <namansingh0305@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django = "^4.2.7"
+django = "^5.0"
+django-cors-headers = "^4.3.1"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.3.1"
+pre-commit = "^3.6.0"
+psycopg2-binary = "^2.9.9"
 
 
 [build-system]
