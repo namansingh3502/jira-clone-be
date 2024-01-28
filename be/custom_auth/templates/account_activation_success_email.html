@@ -1,0 +1,12 @@
+{% autoescape off %}
+    Hi {{ user.first_name }} {{ user.middle_name }} {{ user.last_name }}, welcome to the Project Management App!.
+    Your account has been created, please click on the link to confirm your registration,
+    {{ domain }}/activate_account/{{ uid }}/{{ token }}.
+
+    Feel free to play around with it, and if you have any suggestions, please let me know!
+
+    Best Regards,
+    Naman Singh
+{% endautoescape %}
+
+
