@@ -42,11 +42,10 @@ class RegisterUser(View):
 
 class ActivateUser(View):
 
-    def get(self, uuidb64, token):
-        user = None
+    def get(self, request, uidb64, token):
 
         try:
-            uid = force_bytes(urlsafe_base64_decode(uuidb64))
+            uid = force_bytes(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=uid)
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
             return JsonResponse({'msg': "Activation link is invalid!."}, status=400)
@@ -54,7 +53,7 @@ class ActivateUser(View):
         if user and account_activation_token.check_token(user, token):
             user.is_active = True
             user.save()
-            user_activation_success.send(sender=self.__class__, instance=user, user=user)
+            user_activation_success.send(sender="user_activation_success", instance=user, user=user)
 
             return JsonResponse({'msg': "Account activated."}, status=200)
 
