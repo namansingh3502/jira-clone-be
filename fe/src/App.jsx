@@ -4,10 +4,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BaseRoute from "./routes/BaseRoute";
 import ErrorPage from "./ErrorPage";
 
+import Auth from "./pages/auth/Auth";
+
 const router = createBrowserRouter([
   {
     path: "/auth",
-    element: <AuthPage />,
+    element: <Auth />,
     errorElement: <ErrorPage />,
   },
   {
