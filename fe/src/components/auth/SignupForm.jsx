@@ -1,10 +1,20 @@
 import { Controller, useForm } from "react-hook-form";
 import { Input } from "../FormInput";
+import { useMutation } from "@tanstack/react-query";
+import { LoginAPI } from "../../api/loginAPI";
 
 export default function SignupForm(props) {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
-
+  const mutation = useMutation({
+    mutationFn: LoginAPI,
+    onError: (error) => {
+      console.log("error: ", error);
+    },
+    onSuccess: (data) => {
+      console.log("success: ", data);
+    },
+    onSettled: (data) => {},
+  });
   const FormFields = [
     {
       id: "firstName",
@@ -41,7 +51,7 @@ export default function SignupForm(props) {
   return (
     <form
       className={"w-full flex flex-col justify-center items-center px-2 py-4"}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(mutation.mutate)}
     >
       <div className={"w-4/5 flex-col justify-center space-y-3"}>
         {FormFields.map((field) => (
