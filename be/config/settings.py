@@ -15,6 +15,8 @@ from pathlib import Path
 
 import environ
 
+from corsheaders.defaults import default_headers
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -40,7 +42,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 DOMAIN = env("DOMAIN")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(",")
 
 # Application definition
 
@@ -136,7 +138,24 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:1234',
+    'http://127.0.0.1:1234',
+]
+CORS_ALLOW_HEADERS = default_headers + ('cache-control', 'withcredentials')
+CORS_ALLOW_CREDENTIALS = True
+
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:1234',
+    'http://127.0.0.1:1234',
+]
+CSRF_COOKIE_AGE = 60 * 60
+
+
+# Auth user model
+AUTH_USER_MODEL = "custom_auth.User"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
