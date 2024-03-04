@@ -86,7 +86,7 @@ class User(AbstractBaseUser):
     )
 
     EMAIL_FIELD = "email"
-    USERNAME_FIELD = "username"
+    USERNAME_FIELD = "email"
 
     class Meta:
         db_table = _("users")

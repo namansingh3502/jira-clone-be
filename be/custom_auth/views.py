@@ -18,8 +18,13 @@ def csrf_token(request):
 class RegisterUser(View):
 
     def post(self, request):
+        auth_form_data = {k:v[0] for k,v in dict(request.POST).items()}
 
-        form = RegistrationForm(request.POST)
+        auth_form_data["password1"] = auth_form_data["password"]
+        auth_form_data["password2"] = auth_form_data["password"]
+        auth_form_data.pop("password")
+
+        form = RegistrationForm(auth_form_data)
 
         if form.is_valid():
             if User.objects.filter(username__iexact=form.cleaned_data["username"]).exists():
