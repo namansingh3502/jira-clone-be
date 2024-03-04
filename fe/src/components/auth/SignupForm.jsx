@@ -1,12 +1,12 @@
-import { Controller, useForm } from "react-hook-form";
-import { Input } from "../FormInput";
+import { useForm } from "react-hook-form";
+import { Input } from "~/src/components/FormInput";
 import { useMutation } from "@tanstack/react-query";
-import { LoginAPI } from "../../api/loginAPI";
+import { SignupAPI } from "~/src/api/SignupAPI";
 
 export default function SignupForm(props) {
   const { register, handleSubmit } = useForm();
   const mutation = useMutation({
-    mutationFn: LoginAPI,
+    mutationFn: SignupAPI,
     onError: (error) => {
       console.log("error: ", error);
     },
@@ -19,13 +19,13 @@ export default function SignupForm(props) {
     {
       id: "firstName",
       type: "text",
-      fieldID: "firstName",
+      fieldID: "first_name",
       label: "First Name",
     },
     {
       id: "lastName",
       type: "text",
-      fieldID: "lastName",
+      fieldID: "last_name",
       label: "Last Name",
     },
     {
@@ -72,7 +72,7 @@ export default function SignupForm(props) {
             "px-8 py-1 rounded-xl bg-orange-500 hover:bg-orange-600 hover:scale-105 "
           }
         >
-          Login
+          Signup
         </button>
         <a
           className={

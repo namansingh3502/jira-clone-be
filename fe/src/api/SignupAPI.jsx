@@ -1,6 +1,6 @@
-import { post } from "./apiMethods";
-import apiUrl from "./constants";
+import { post } from "~/src/utils/apiMethods";
+import apiUrl from "~/src/api/constants";
 
-export const LoginAPI = async (data) => {
-  const res = await post(apiUrl.get_register_url(), data);
+export const SignupAPI = async (data) => {
+  return post(apiUrl.get_register_url(), data);
 };

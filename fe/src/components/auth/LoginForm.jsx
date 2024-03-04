@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Input } from "../FormInput";
+import { Input } from "~/src/components/FormInput";
 import { useMutation } from "@tanstack/react-query";
-import { LoginAPI } from "../../api/loginAPI";
+import { LoginAPI } from "~/src/api/loginAPI";
 
 export default function LoginForm(props) {
   const { register, handleSubmit } = useForm();

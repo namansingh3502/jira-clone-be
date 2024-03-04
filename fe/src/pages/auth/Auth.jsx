@@ -1,7 +1,7 @@
 import { useState } from "react";
-import LoginContainer from "../../components/auth/LoginContainer";
-import illustration from "../../images/illustration.jpeg";
-import SignupContainer from "../../components/auth/SignupContainer";
+import LoginContainer from "~/src/components/auth/LoginContainer";
+import illustration from "~/src/images/illustration.jpeg";
+import SignupContainer from "~/src/components/auth/SignupContainer";
 
 export default function Auth() {
   const [showLogin, setShowLogin] = useState(true);
