@@ -1,9 +1,9 @@
-import Logo from "../common/Logo";
-import LoginForm from "./LoginForm";
+import Logo from "~/src/components/common/Logo";
+import LoginForm from "~/src/components/auth/LoginForm";
 
 export default function LoginContainer(props) {
   return (
-    <div className={"w-full flex-col flex justify-center items-center"}>
+    <div className={"w-full flex-col flex justify-center items-center py-4"}>
       <Logo />
       <div className={"font-semibold my-2"}>
         <h1>Log in to continue</h1>

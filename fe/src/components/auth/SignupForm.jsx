@@ -35,13 +35,13 @@ export default function SignupForm(props) {
       label: "Username",
     },
     {
-      id: "email",
+      id: "signup_email",
       type: "email",
       fieldID: "email",
       label: "Email",
     },
     {
-      id: "password",
+      id: "signup_password",
       type: "password",
       fieldID: "password",
       label: "Password",

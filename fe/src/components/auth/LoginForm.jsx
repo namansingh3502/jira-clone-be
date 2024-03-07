@@ -18,13 +18,13 @@ export default function LoginForm(props) {
 
   const FormFields = [
     {
-      id: "email",
+      id: "login_email",
       type: "email",
       fieldID: "email",
       label: "Email",
     },
     {
-      id: "password",
+      id: "login_password",
       type: "password",
       fieldID: "password",
       label: "Password",
