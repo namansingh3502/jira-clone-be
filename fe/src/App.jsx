@@ -8,6 +8,7 @@ import axios from "axios";
 
 import BaseRoute from "~/src/routes/BaseRoute";
 import ErrorPage from "~/src/ErrorPage";
+import Page404 from "~/src/Page404";
 import Auth from "~/src/pages/auth/Auth";
 
 /* react query settings */
@@ -24,12 +25,16 @@ axios.interceptors.request.use(async (config) => {
 /* base router settings */
 const router = createBrowserRouter([
   {
-    path: "/auth",
+    path: "*",
+    element: <Page404 />,
+  },
+  {
+    path: "/auth/*",
     element: <Auth />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/",
+    path: "/*",
     element: <BaseRoute />,
     errorElement: <ErrorPage />,
   },

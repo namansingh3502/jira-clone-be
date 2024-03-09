@@ -1,4 +1,4 @@
-const get_localstorage_item = (key) => {
+const getLocalstorage = (key) => {
   const now = new Date();
   const time = now.getTime();
 
@@ -10,7 +10,7 @@ const get_localstorage_item = (key) => {
   return null;
 };
 
-const set_localstorage_item = (key, value, ttl) => {
+const setLocalstorage = (key, value, ttl) => {
   const now = new Date();
   const time = now.getTime();
 
@@ -22,4 +22,4 @@ const set_localstorage_item = (key, value, ttl) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
 
-export { get_localstorage_item, set_localstorage_item };
+export { getLocalstorage, setLocalstorage };
