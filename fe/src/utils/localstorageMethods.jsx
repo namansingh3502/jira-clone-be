@@ -16,7 +16,7 @@ const setLocalstorage = (key, value, ttl) => {
   const now = new Date();
   const time = now.getTime();
 
-  data = {
+  const data = {
     value: value,
     expirytime: time + ttl,
   };
