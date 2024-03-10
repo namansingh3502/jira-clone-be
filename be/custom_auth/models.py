@@ -54,8 +54,8 @@ class User(AbstractBaseUser):
 
     username_validator = UnicodeUsernameValidator()
 
-    first_name = models.CharField(_("first name"), max_length=150)
-    last_name = models.CharField(_("last name"), max_length=150, blank=True)
+    first_name = models.CharField(_("first name"), max_length=50)
+    last_name = models.CharField(_("last name"), max_length=50, blank=True)
 
     username = models.CharField(
         _("username"),
@@ -69,7 +69,7 @@ class User(AbstractBaseUser):
             "unique": _("A user with that username already exists."),
         },
     )
-    email = models.EmailField(_("email address"))
+    email = models.EmailField(_("email address"), unique=True)
 
     is_active = models.BooleanField(
         _("active"),

@@ -13,9 +13,7 @@ export default function Auth() {
       }
     >
       <div
-        className={
-          "min-h-[500px] h-96 w-4/5 max-w-[900px] relative flex justify-center"
-        }
+        className={"h-[550px] w-4/5 max-w-[900px] relative flex justify-center"}
       >
         <div className={"absolute min-h-full w-1/2 z-50 flex left-0"}>
           <div

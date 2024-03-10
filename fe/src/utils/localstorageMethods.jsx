@@ -6,6 +6,8 @@ const getLocalstorage = (key) => {
 
   if (data && data.expirytime < time) {
     return data.value;
+  } else {
+    localStorage.removeItem(key);
   }
   return null;
 };

@@ -42,6 +42,11 @@ class RegisterUser(View):
                 {"user_created": "success", "user_name": user.username}, status=201
             )
 
+        # to be fixed later on
+        if "password2" in form.errors:
+            form.errors["password"] = form.errors["password2"]
+            form.errors.pop("password2")
+
         return JsonResponse({"errors": form.errors}, status=400)
 
 
