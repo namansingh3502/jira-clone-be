@@ -6,10 +6,10 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import axios from "axios";
 
+import AccountRouter from "~/src/routes/AccountRouter";
 import BaseRoute from "~/src/routes/BaseRoute";
 import ErrorPage from "~/src/ErrorPage";
 import Page404 from "~/src/Page404";
-import Auth from "~/src/pages/auth/Auth";
 
 /* react query settings */
 const queryClient = new QueryClient();
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
     element: <Page404 />,
   },
   {
-    path: "/auth/*",
-    element: <Auth />,
+    path: "/account/*",
+    children: AccountRouter,
     errorElement: <ErrorPage />,
   },
   {

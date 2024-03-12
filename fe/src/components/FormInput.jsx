@@ -18,7 +18,7 @@ export const Input = (props) => {
           {props.label}
         </span>
       </label>
-      <p className={"h-0.5 px-2 text-red-400 text-xs"}>
+      <p className={"h-0.5 px-2 text-red-500 text-xs"}>
         {error?.type === "required" ? "This field is required." : " "}
         {error?.type === "manual" ? error.message : " "}
       </p>

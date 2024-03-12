@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Input } from "~/src/components/FormInput";
 import { useMutation } from "@tanstack/react-query";
 import { SignupAPI } from "~/src/api/SignupAPI";
 
+import { setLocalstorage } from "~/src/utils/localstorageMethods";
+
 export default function SignupForm(props) {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,9 +24,9 @@ export default function SignupForm(props) {
       }
     },
     onSuccess: (data) => {
-      console.log("success: ", data);
+      setLocalstorage("fullName", data.data["full_name"], 3600 * 24 * 365);
+      navigate()
     },
-    onSettled: (data) => {},
   });
   const FormFields = [
     {
@@ -38,7 +42,7 @@ export default function SignupForm(props) {
       errors: errors.first_name,
     },
     {
-      id: "last_name",
+      id: "lastName",
       type: "text",
       fieldID: "last_name",
       label: "Last Name",
@@ -62,7 +66,7 @@ export default function SignupForm(props) {
       errors: errors.username,
     },
     {
-      id: "signup_email",
+      id: "signupEmail",
       type: "email",
       fieldID: "email",
       label: "Email",

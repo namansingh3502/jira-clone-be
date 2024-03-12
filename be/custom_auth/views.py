@@ -39,7 +39,7 @@ class RegisterUser(View):
             user = User.objects.create_user(user_data=form.cleaned_data)
 
             return JsonResponse(
-                {"user_created": "success", "user_name": user.username}, status=201
+                {"status": "success", "full_name": f"{user.first_name} {user.last_name}"}, status=201
             )
 
         # to be fixed later on

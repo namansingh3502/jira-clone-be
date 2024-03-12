@@ -10,5 +10,5 @@ urlpatterns = [
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 
     path("register/", auth_view.RegisterUser.as_view(), name="register"),
-    path("activate/<uidb64>/<token>/", auth_view.ActivateUser.as_view(), name="activate_user"),
+    path("activate/<uidb64>/<token>", auth_view.ActivateUser.as_view(), name="activate_user"),
 ]

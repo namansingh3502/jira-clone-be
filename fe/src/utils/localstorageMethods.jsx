@@ -4,7 +4,7 @@ const getLocalstorage = (key) => {
 
   const data = JSON.parse(localStorage.getItem(key));
 
-  if (data && data.expirytime < time) {
+  if (data && data.expirytime > time) {
     return data.value;
   } else {
     localStorage.removeItem(key);
@@ -24,4 +24,6 @@ const setLocalstorage = (key, value, ttl) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
 
-export { getLocalstorage, setLocalstorage };
+const clearLocalstorage = () => localStorage.clear()
+
+export { getLocalstorage, setLocalstorage, clearLocalstorage };
