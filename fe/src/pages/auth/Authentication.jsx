@@ -1,9 +1,9 @@
 import { useState } from "react";
 import LoginContainer from "~/src/components/auth/LoginContainer";
-import illustration from "~/src/images/illustration.jpeg";
+import Illustration from "~/src/images/illustration.jpeg";
 import SignupContainer from "~/src/components/auth/SignupContainer";
 
-export default function Auth() {
+export default function Authentication() {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
@@ -13,9 +13,7 @@ export default function Auth() {
       }
     >
       <div
-        className={
-          "min-h-[500px] h-96 w-4/5 max-w-[900px] relative flex justify-center"
-        }
+        className={"h-[550px] w-4/5 max-w-[900px] relative flex justify-center"}
       >
         <div className={"absolute min-h-full w-1/2 z-50 flex left-0"}>
           <div
@@ -25,7 +23,7 @@ export default function Auth() {
           >
             <img
               className={"h-full"}
-              src={illustration}
+              src={Illustration}
               alt={"Product Illustration"}
             ></img>
           </div>

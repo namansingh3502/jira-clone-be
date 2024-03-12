@@ -1,10 +1,9 @@
-import Logo from "../common/Logo";
-import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
+import Logo from "~/src/components/common/Logo";
+import SignupForm from "~/src/components/auth/SignupForm";
 
 export default function SignupContainer(props) {
   return (
-    <div className={"w-full flex-col flex justify-center items-center"}>
+    <div className={"w-full flex-col flex justify-center items-center py-4"}>
       <Logo />
       <div className={"font-semibold"}>
         <h1>Sign up to continue</h1>

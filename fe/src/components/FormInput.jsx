@@ -1,13 +1,14 @@
 export const Input = (props) => {
+  const error = props.error;
   return (
-    <div className={"w-full"}>
+    <div className={"h-14 w-full"}>
       <label className={"w-full relative group"}>
         <input
           id={props.id}
           type={props.type}
-          className="peer h-10 w-full border-2 p-2 block appearance-none focus:outline-none focus:ring-0 rounded-md focus:border-blue-500"
+          className={`peer h-10 w-full border-2 px-2 py-1 block appearance-none focus:outline-none focus:ring-0 rounded-md focus:border-blue-500 ${error ? "border-red-500" : ""}`}
           placeholder={""}
-          {...props.register(props.fieldID)}
+          {...props.register(props.fieldID, props.validators)}
         />
         <span
           className={
@@ -17,6 +18,10 @@ export const Input = (props) => {
           {props.label}
         </span>
       </label>
+      <p className={"h-0.5 px-2 text-red-500 text-xs"}>
+        {error?.type === "required" ? "This field is required." : " "}
+        {error?.type === "manual" ? error.message : " "}
+      </p>
     </div>
   );
 };

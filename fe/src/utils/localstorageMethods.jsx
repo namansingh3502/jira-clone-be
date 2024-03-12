@@ -1,20 +1,22 @@
-const get_localstorage_item = (key) => {
+const getLocalstorage = (key) => {
   const now = new Date();
   const time = now.getTime();
 
   const data = JSON.parse(localStorage.getItem(key));
 
-  if (data && data.expirytime < time) {
+  if (data && data.expirytime > time) {
     return data.value;
+  } else {
+    localStorage.removeItem(key);
   }
   return null;
 };
 
-const set_localstorage_item = (key, value, ttl) => {
+const setLocalstorage = (key, value, ttl) => {
   const now = new Date();
   const time = now.getTime();
 
-  data = {
+  const data = {
     value: value,
     expirytime: time + ttl,
   };
@@ -22,4 +24,6 @@ const set_localstorage_item = (key, value, ttl) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
 
-export { get_localstorage_item, set_localstorage_item };
+const clearLocalstorage = () => localStorage.clear();
+
+export { getLocalstorage, setLocalstorage, clearLocalstorage };

@@ -6,9 +6,10 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import axios from "axios";
 
+import AccountRouter from "~/src/routes/AccountRouter";
 import BaseRoute from "~/src/routes/BaseRoute";
 import ErrorPage from "~/src/ErrorPage";
-import Auth from "~/src/pages/auth/Auth";
+import Page404 from "~/src/Page404";
 
 /* react query settings */
 const queryClient = new QueryClient();
@@ -24,12 +25,16 @@ axios.interceptors.request.use(async (config) => {
 /* base router settings */
 const router = createBrowserRouter([
   {
-    path: "/auth",
-    element: <Auth />,
+    path: "*",
+    element: <Page404 />,
+  },
+  {
+    path: "/account/*",
+    children: AccountRouter,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/",
+    path: "/*",
     element: <BaseRoute />,
     errorElement: <ErrorPage />,
   },
