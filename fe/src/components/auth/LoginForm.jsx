@@ -5,7 +5,10 @@ import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 
 import { LoginAPI } from "~/src/api/LoginAPI";
-import { setLocalstorage, clearLocalstorage } from "~/src/utils/localstorageMethods";
+import {
+  setLocalstorage,
+  clearLocalstorage,
+} from "~/src/utils/localstorageMethods";
 
 export default function LoginForm(props) {
   const navigate = useNavigate();
@@ -19,14 +22,14 @@ export default function LoginForm(props) {
   const mutation = useMutation({
     mutationFn: LoginAPI,
     onError: (error) => {
-      clearLocalstorage()
+      clearLocalstorage();
       setValidationError(error.response.data?.detail);
     },
     onSuccess: (data) => {
-      setLocalstorage("access_token", data.data["access"], 60*60)
-      setLocalstorage("refresh_token", data.data["refresh"], 60*60)
-      navigate('/dashboard')
-    }
+      setLocalstorage("access_token", data.data["access"], 60 * 60);
+      setLocalstorage("refresh_token", data.data["refresh"], 60 * 60);
+      navigate("/dashboard");
+    },
   });
 
   const FormFields = [

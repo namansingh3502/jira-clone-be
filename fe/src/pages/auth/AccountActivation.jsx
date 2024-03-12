@@ -7,7 +7,7 @@ import { AccountActivationAPI } from "~/src/api/AccountActivationAPI";
 import Logo from "~/src/components/common/Logo";
 import { useState } from "react";
 
-export default AccountActivation = () => {
+export default function AccountActivation() {
   const navigate = useNavigate();
   const fullName = getLocalstorage("fullName");
   let { uidb64, token } = useParams();
@@ -17,15 +17,15 @@ export default AccountActivation = () => {
     queryFn: async () => {
       if (uidb64 && token) {
         const data = await AccountActivationAPI(uidb64, token);
-        setIsActivated(true)
+        setIsActivated(true);
       }
       return data || "";
     },
   });
 
-  if( isActivated ){
-    setTimeout(3*1000)
-    navigate("/account/authentication")
+  if (isActivated) {
+    setTimeout(3 * 1000);
+    navigate("/account/authentication");
   }
 
   return (
@@ -46,10 +46,9 @@ export default AccountActivation = () => {
                   Hi! {fullName}, welcome to the SprintCraft. Your account has
                   been activated successfuly.
                 </p>
-                <br/><br/>
-                <p>
-                  Redirecting you to login page.
-                </p>
+                <br />
+                <br />
+                <p>Redirecting you to login page.</p>
               </div>
             ) : (
               <p>Link has been expired.</p>
@@ -68,4 +67,4 @@ export default AccountActivation = () => {
       </div>
     </div>
   );
-};
+}

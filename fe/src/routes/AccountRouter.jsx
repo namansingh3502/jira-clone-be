@@ -3,7 +3,7 @@ import AccountActivation from "~/src/pages/auth/AccountActivation";
 import ErrorPage from "~/src/ErrorPage";
 import Page404 from "~/src/Page404";
 
-export default AccountRouter = [
+const AccountRouter = [
   {
     path: "*",
     element: <Page404 />,
@@ -29,3 +29,5 @@ export default AccountRouter = [
     errorElement: <ErrorPage />,
   },
 ];
+
+export default AccountRouter;

@@ -24,6 +24,6 @@ const setLocalstorage = (key, value, ttl) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
 
-const clearLocalstorage = () => localStorage.clear()
+const clearLocalstorage = () => localStorage.clear();
 
 export { getLocalstorage, setLocalstorage, clearLocalstorage };

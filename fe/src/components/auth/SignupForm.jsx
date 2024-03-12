@@ -25,7 +25,7 @@ export default function SignupForm(props) {
     },
     onSuccess: (data) => {
       setLocalstorage("fullName", data.data["full_name"], 3600 * 24 * 365);
-      navigate()
+      navigate("/account/activate");
     },
   });
   const FormFields = [
